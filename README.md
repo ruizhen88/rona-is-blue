@@ -1,3 +1,5 @@
+This open API is live on https://limitless-sierra-67996.herokuapp.com/v1/questions
+
 # RESTful API Node Server Boilerplate
 
 [![Build Status](https://travis-ci.org/hagopj13/node-express-boilerplate.svg?branch=master)](https://travis-ci.org/hagopj13/node-express-boilerplate)
