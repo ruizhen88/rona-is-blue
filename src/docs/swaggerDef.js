@@ -11,11 +11,11 @@ const swaggerDef = {
       url: 'https://github.com/hagopj13/node-express-boilerplate/blob/master/LICENSE',
     },
   },
-  servers: [
-    {
-      url: `http://localhost:${config.port}/v1`,
-    },
-  ],
+  // servers: [
+  //   {
+  //     url: `http://localhost:${config.port}/v1`,
+  //   },
+  // ],
 };
 
 module.exports = swaggerDef;

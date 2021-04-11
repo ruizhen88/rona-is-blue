@@ -15,7 +15,6 @@ module.exports = router;
  * @swagger
  * tags:
  *   name: Questions
-//  *   description: User management and retrieval
  */
 
 /**
@@ -23,7 +22,7 @@ module.exports = router;
  * /questions:
  *   post:
  *     summary: Create a question
- *     description: Only admins can create other questions.
+ *     description:
  *     tags: [Questions]
  *     security:
  *       - bearerAuth: []
@@ -34,61 +33,41 @@ module.exports = router;
  *           schema:
  *             type: object
  *             required:
- *               - name
- *               - email
- *               - password
- *               - role
+ *               - title
+ *               - body
  *             properties:
- *               name:
+ *               title:
  *                 type: string
- *               email:
+ *               body:
  *                 type: string
- *                 format: email
- *                 description: must be unique
- *               password:
- *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
- *               role:
- *                  type: string
- *                  enum: [question, admin]
  *             example:
- *               name: fake name
- *               email: fake@example.com
- *               password: password1
- *               role: question
+ *               title: 알약 포장재
+ *               body: 알약 포장재는 어떻게 배출하나요?
  *     responses:
  *       "201":
  *         description: Created
  *         content:
  *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/User'
- *       "400":
- *         $ref: '#/components/responses/DuplicateEmail'
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- *       "403":
- *         $ref: '#/components/responses/Forbidden'
+ *                $ref: '#/components/schemas/Question'
  *
  *   get:
  *     summary: Get all questions
- *     description: Only admins can retrieve all questions.
+ *     description:
  *     tags: [Questions]
  *     security:
  *       - bearerAuth: []
  *     parameters:
  *       - in: query
- *         name: name
+ *         name: title
  *         schema:
  *           type: string
- *         description: User name
+ *         description: Question title
  *       - in: query
- *         name: role
+ *         name: body
  *         schema:
  *           type: string
- *         description: User role
+ *         description: Question body
  *       - in: query
  *         name: sortBy
  *         schema:
@@ -119,7 +98,7 @@ module.exports = router;
  *                 results:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/User'
+ *                     $ref: '#/components/schemas/Question'
  *                 page:
  *                   type: integer
  *                   example: 1
@@ -132,10 +111,6 @@ module.exports = router;
  *                 totalResults:
  *                   type: integer
  *                   example: 1
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- *       "403":
- *         $ref: '#/components/responses/Forbidden'
  */
 
 /**
@@ -143,7 +118,7 @@ module.exports = router;
  * /questions/{id}:
  *   get:
  *     summary: Get a question
- *     description: Logged in questions can fetch only their own question information. Only admins can fetch other questions.
+ *     description:
  *     tags: [Questions]
  *     security:
  *       - bearerAuth: []
@@ -153,24 +128,18 @@ module.exports = router;
  *         required: true
  *         schema:
  *           type: string
- *         description: User id
+ *         description: Question id
  *     responses:
  *       "200":
  *         description: OK
  *         content:
  *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/User'
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- *       "403":
- *         $ref: '#/components/responses/Forbidden'
- *       "404":
- *         $ref: '#/components/responses/NotFound'
+ *                $ref: '#/components/schemas/Question'
  *
  *   patch:
  *     summary: Update a question
- *     description: Logged in questions can only update their own information. Only admins can update other questions.
+ *     description:
  *     tags: [Questions]
  *     security:
  *       - bearerAuth: []
@@ -180,7 +149,7 @@ module.exports = router;
  *         required: true
  *         schema:
  *           type: string
- *         description: User id
+ *         description: Question id
  *     requestBody:
  *       required: true
  *       content:
@@ -188,40 +157,26 @@ module.exports = router;
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               title:
  *                 type: string
- *               email:
+ *               body:
  *                 type: string
- *                 format: email
- *                 description: must be unique
- *               password:
- *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
  *             example:
- *               name: fake name
- *               email: fake@example.com
- *               password: password1
+ *               title: 알약 포장재 (수정)
+ *               body: 알약 포장재는 어떻게 배출하나요? (수정)
  *     responses:
  *       "200":
  *         description: OK
  *         content:
  *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/User'
- *       "400":
- *         $ref: '#/components/responses/DuplicateEmail'
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- *       "403":
- *         $ref: '#/components/responses/Forbidden'
+ *                $ref: '#/components/schemas/Question'
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  *
  *   delete:
  *     summary: Delete a question
- *     description: Logged in questions can delete only themselves. Only admins can delete other questions.
+ *     description:
  *     tags: [Questions]
  *     security:
  *       - bearerAuth: []
@@ -231,14 +186,10 @@ module.exports = router;
  *         required: true
  *         schema:
  *           type: string
- *         description: User id
+ *         description: Question id
  *     responses:
  *       "200":
  *         description: No content
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- *       "403":
- *         $ref: '#/components/responses/Forbidden'
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  */
