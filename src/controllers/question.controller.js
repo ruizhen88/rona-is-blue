@@ -10,7 +10,6 @@ const createQuestion = catchAsync(async (req, res) => {
 });
 
 const getQuestions = catchAsync(async (req, res) => {
-  console.log('here?????');
   const filter = pick(req.query, ['name', 'role']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await questionService.queryQuestions(filter, options);
