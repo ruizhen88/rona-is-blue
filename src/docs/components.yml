@@ -9,9 +9,12 @@ components:
           type: string
         body:
           type: string
+        category:
+          type: string
       example:
         title: 알약 포장재
         body: 알약 포장재는 어떻게 배출하나요?
+        category: 플라스틱
 
     # User:
     #   type: object
