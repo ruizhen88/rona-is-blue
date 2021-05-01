@@ -174,9 +174,12 @@ module.exports = router;
  *                 type: string
  *               body:
  *                 type: string
+ *               category:
+ *                 type: string
  *             example:
  *               title: 알약 포장재 (수정)
  *               body: 알약 포장재는 어떻게 배출하나요? (수정)
+ *               category: 플라스틱 (수정)
  *     responses:
  *       "200":
  *         description: OK
