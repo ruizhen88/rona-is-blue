@@ -11,16 +11,15 @@ const questionSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    // TODO: add later
-    // categories: {
-    //   type: Array,
-    // },
     // answer: {
     //   type: Object,
     // },
     body: {
       type: String,
       required: true,
+    },
+    category: {
+      type: String,
     },
     // email: {
     //   type: String,

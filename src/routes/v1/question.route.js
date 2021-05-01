@@ -39,14 +39,18 @@ module.exports = router;
  *             required:
  *               - title
  *               - body
+ *               - category
  *             properties:
  *               title:
  *                 type: string
  *               body:
  *                 type: string
+ *               category:
+ *                 type: string
  *             example:
  *               title: 알약 포장재
  *               body: 알약 포장재는 어떻게 배출하나요?
+ *               category: 플라스틱
  *     responses:
  *       "201":
  *         description: Created
@@ -72,6 +76,11 @@ module.exports = router;
  *         schema:
  *           type: string
  *         description: Question body
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: Question category
  *       - in: query
  *         name: sortBy
  *         schema:
