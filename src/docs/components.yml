@@ -16,6 +16,19 @@ components:
         body: 알약 포장재는 어떻게 배출하나요?
         category: 플라스틱
 
+    Answer:
+      type: object
+      properties:
+        id:
+          type: string
+        questionId:
+          type: string
+        body:
+          type: string
+      example:
+        questionId: 608a3907365667002ab4c637
+        body: 잘 배출합니다.
+
     # User:
     #   type: object
     #   properties:

@@ -2,6 +2,7 @@ const express = require('express');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
 const questionRoute = require('./question.route');
+const answerRoute = require('./answer.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -24,6 +25,10 @@ const defaultRoutes = [
     path: '/questions',
     route: questionRoute,
   },
+  {
+    path: '/answers',
+    route: answerRoute,
+  },
 ];
 
 const devRoutes = [
@@ -34,6 +39,10 @@ const devRoutes = [
   {
     path: '/questions',
     route: questionRoute,
+  },
+  {
+    path: '/answers',
+    route: answerRoute,
   },
 ];
 
