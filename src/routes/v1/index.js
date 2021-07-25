@@ -2,6 +2,7 @@ const express = require('express');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
 const questionRoute = require('./question.route');
+const movieRoute = require('./movie.route');
 const answerRoute = require('./answer.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
@@ -29,6 +30,7 @@ const defaultRoutes = [
     path: '/answers',
     route: answerRoute,
   },
+  { path: '/movies', route: movieRoute },
 ];
 
 const devRoutes = [
