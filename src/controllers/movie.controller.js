@@ -10,7 +10,7 @@ const createMovie = catchAsync(async (req, res) => {
 });
 
 const getMovies = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['title', 'body', 'category']);
+  const filter = pick(req.query, ['title', 'categories']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await movieService.queryMovies(filter, options);
   res.send(result);
