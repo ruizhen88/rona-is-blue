@@ -90,6 +90,11 @@ module.exports = router;
  *           type: string
  *         description: Movie category
  *       - in: query
+ *         name: title
+ *         schema:
+ *           type: string
+ *         description: Movie title
+ *       - in: query
  *         name: limit
  *         schema:
  *           type: integer
@@ -103,6 +108,12 @@ module.exports = router;
  *           minimum: 1
  *           default: 1
  *         description: Page number
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *         description: sort by query in the form of field:desc/asc (ex. rating:asc)
+
  *     responses:
  *       "200":
  *         description: OK
