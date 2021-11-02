@@ -25,6 +25,20 @@ components:
     Tag:
       type: string
 
+    Comment:
+      type: object
+      properties:
+        id:
+          type: string
+        postId:
+          type: string
+        body:
+          type: string
+      example:
+        id: 5ebac534954b54139806c112
+        postId: 6180a8850516aed98f22e589
+        body: 본문 예시
+
     Error:
       type: object
       properties:
