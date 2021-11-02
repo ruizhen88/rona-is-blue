@@ -9,6 +9,8 @@ components:
           type: string
         body:
           type: string
+        thumbnail:
+          type: string
         tags:
           type: array
           items:
@@ -17,6 +19,7 @@ components:
         id: 5ebac534954b54139806c112
         title: 제목 예시
         body: 본문 예시
+        thumbnail: https://cdn.imweb.me/upload/S201712205a3a0910b89f5/a2470afad8a92.jpg
         tags: [태그1, 태그2]
 
     Tag:

@@ -37,6 +37,8 @@ module.exports = router;
  *                 type: string
  *               body:
  *                 type: string
+ *               thumbnail:
+ *                 type: string
  *               tags:
  *                 type: array
  *             example:
@@ -150,16 +152,7 @@ module.exports = router;
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               body:
- *                 type: string
- *               tags:
- *                 type: array
- *             example:
- *               tags: [리액트, 스프링, 웹개발자]
+ *              $ref: '#/components/schemas/Post'
  *     responses:
  *       "200":
  *         description: OK
