@@ -1,24 +1,42 @@
 components:
   schemas:
-    Movie:
+    Post:
       type: object
       properties:
         id:
           type: string
         title:
           type: string
-        year:
-          type: number
-        summary:
+        body:
           type: string
-        director:
-          type: string
-        rating:
-          type: number
-        categories:
+        tags:
           type: array
           items:
-            $ref: '#/components/schemas/Category'
+            $ref: '#/components/schemas/Tag'
+      example:
+        id: 5ebac534954b54139806c112
+        title: 제목 예시
+        body: 본문 예시
+        tags: [태그1, 태그2]
 
-    Category:
+    Tag:
       type: string
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+
+  responses:
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
