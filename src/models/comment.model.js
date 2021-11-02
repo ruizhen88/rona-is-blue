@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const { toJSON, paginate } = require('./plugins');
 
-const answerSchema = mongoose.Schema(
+const commentSchema = mongoose.Schema(
   {
-    questionId: {
+    postId: {
       type: String,
       required: true,
     },
@@ -18,12 +18,12 @@ const answerSchema = mongoose.Schema(
 );
 
 // add plugin that converts mongoose to json
-answerSchema.plugin(toJSON);
-answerSchema.plugin(paginate);
+commentSchema.plugin(toJSON);
+commentSchema.plugin(paginate);
 
 /**
- * @typedef Answer
+ * @typedef Comment
  */
-const Answer = mongoose.model('Answer', answerSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = Answer;
+module.exports = Comment;

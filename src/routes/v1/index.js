@@ -3,7 +3,7 @@ const express = require('express');
 // const userRoute = require('./user.route');
 const postRoute = require('./post.route');
 const movieRoute = require('./movie.route');
-const answerRoute = require('./answer.route');
+const commentRoute = require('./comment.route');
 const docsRoute = require('./docs.route');
 // const config = require('../../config/config');
 
@@ -27,8 +27,8 @@ const defaultRoutes = [
     route: postRoute,
   },
   {
-    path: '/answers',
-    route: answerRoute,
+    path: '/comments',
+    route: commentRoute,
   },
   { path: '/movies', route: movieRoute },
 ];
