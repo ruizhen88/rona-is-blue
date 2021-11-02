@@ -1,33 +1,29 @@
 const express = require('express');
 // const auth = require('../../middlewares/auth');
 // const validate = require('../../middlewares/validate');
-// const questionValidation = require('../../validations/question.validation');
-const questionController = require('../../controllers/question.controller');
+// const postValidation = require('../../validations/post.validation');
+const postController = require('../../controllers/post.controller');
 
 const router = express.Router();
 
-router.route('/').post(questionController.createQuestion).get(questionController.getQuestions);
-router
-  .route('/:questionId')
-  .get(questionController.getQuestion)
-  .patch(questionController.updateQuestion)
-  .delete(questionController.deleteQuestion);
+router.route('/').post(postController.createPost).get(postController.getPosts);
+router.route('/:postId').get(postController.getPost).patch(postController.updatePost).delete(postController.deletePost);
 
 module.exports = router;
 
 // /**
 //  * @swagger
 //  * tags:
-//  *   name: Questions
+//  *   name: Posts
 //  */
 
 // /**
 //  * @swagger
-//  * /questions:
+//  * /posts:
 //  *   post:
-//  *     summary: Create a question
+//  *     summary: Create a post
 //  *     description:
-//  *     tags: [Questions]
+//  *     tags: [Posts]
 //  *     security:
 //  *       - bearerAuth: []
 //  *     requestBody:
@@ -57,12 +53,12 @@ module.exports = router;
 //  *         content:
 //  *           application/json:
 //  *             schema:
-//  *                $ref: '#/components/schemas/Question'
+//  *                $ref: '#/components/schemas/Post'
 //  *
 //  *   get:
-//  *     summary: Get all questions
+//  *     summary: Get all posts
 //  *     description:
-//  *     tags: [Questions]
+//  *     tags: [Posts]
 //  *     security:
 //  *       - bearerAuth: []
 //  *     parameters:
@@ -70,17 +66,17 @@ module.exports = router;
 //  *         name: title
 //  *         schema:
 //  *           type: string
-//  *         description: Question title
+//  *         description: Post title
 //  *       - in: query
 //  *         name: body
 //  *         schema:
 //  *           type: string
-//  *         description: Question body
+//  *         description: Post body
 //  *       - in: query
 //  *         name: category
 //  *         schema:
 //  *           type: string
-//  *         description: Question category
+//  *         description: Post category
 //  *       - in: query
 //  *         name: sortBy
 //  *         schema:
@@ -92,7 +88,7 @@ module.exports = router;
 //  *           type: integer
 //  *           minimum: 1
 //  *         default: 10
-//  *         description: Maximum number of questions
+//  *         description: Maximum number of posts
 //  *       - in: query
 //  *         name: page
 //  *         schema:
@@ -111,7 +107,7 @@ module.exports = router;
 //  *                 results:
 //  *                   type: array
 //  *                   items:
-//  *                     $ref: '#/components/schemas/Question'
+//  *                     $ref: '#/components/schemas/Post'
 //  *                 page:
 //  *                   type: integer
 //  *                   example: 1
@@ -128,11 +124,11 @@ module.exports = router;
 
 // /**
 //  * @swagger
-//  * /questions/{id}:
+//  * /posts/{id}:
 //  *   get:
-//  *     summary: Get a question
+//  *     summary: Get a post
 //  *     description:
-//  *     tags: [Questions]
+//  *     tags: [Posts]
 //  *     security:
 //  *       - bearerAuth: []
 //  *     parameters:
@@ -141,19 +137,19 @@ module.exports = router;
 //  *         required: true
 //  *         schema:
 //  *           type: string
-//  *         description: Question id
+//  *         description: Post id
 //  *     responses:
 //  *       "200":
 //  *         description: OK
 //  *         content:
 //  *           application/json:
 //  *             schema:
-//  *                $ref: '#/components/schemas/Question'
+//  *                $ref: '#/components/schemas/Post'
 //  *
 //  *   patch:
-//  *     summary: Update a question
+//  *     summary: Update a post
 //  *     description:
-//  *     tags: [Questions]
+//  *     tags: [Posts]
 //  *     security:
 //  *       - bearerAuth: []
 //  *     parameters:
@@ -162,7 +158,7 @@ module.exports = router;
 //  *         required: true
 //  *         schema:
 //  *           type: string
-//  *         description: Question id
+//  *         description: Post id
 //  *     requestBody:
 //  *       required: true
 //  *       content:
@@ -186,14 +182,14 @@ module.exports = router;
 //  *         content:
 //  *           application/json:
 //  *             schema:
-//  *                $ref: '#/components/schemas/Question'
+//  *                $ref: '#/components/schemas/Post'
 //  *       "404":
 //  *         $ref: '#/components/responses/NotFound'
 //  *
 //  *   delete:
-//  *     summary: Delete a question
+//  *     summary: Delete a post
 //  *     description:
-//  *     tags: [Questions]
+//  *     tags: [Posts]
 //  *     security:
 //  *       - bearerAuth: []
 //  *     parameters:
@@ -202,7 +198,7 @@ module.exports = router;
 //  *         required: true
 //  *         schema:
 //  *           type: string
-//  *         description: Question id
+//  *         description: Post id
 //  *     responses:
 //  *       "200":
 //  *         description: No content
